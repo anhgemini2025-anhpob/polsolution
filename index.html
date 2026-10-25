@@ -1,0 +1,1786 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VietHoaTalk (VietHoa Pro) — App Học Tiếng Hoa Giao Tiếp Thực Chiến Cho Người Việt | POL SOLUTION</title>
+  <meta name="description" content="Học tiếng Hoa giao tiếp thực chiến cho Kỹ sư Nhà máy, Chủ vựa Nông sản, Dân buôn 1688 & Logistics. Triết lý Audio-First, Zero-Writing: 0% tập viết chữ Hán, 100% phản xạ Pinyin & Shadowing 3s. Bản quyền POL SOLUTION.">
+  <meta name="keywords" content="VietHoaTalk, VietHoa Pro, POL SOLUTION, hoc tieng hoa giao tiep, tieng trung nha xuong, tieng trung 1688, sau rieng xuat khau, culture guard, device binding drm">
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="VietHoaTalk — App Học Tiếng Hoa Giao Tiếp Thực Chiến | POL SOLUTION">
+  <meta property="og:description" content="Bật phản xạ tiếng Hoa thực chiến — 0% chép tay chữ Hán. Dành riêng cho Kỹ sư, Chủ vựa Nông sản & Dân buôn 1688. Dùng thử 14 tuần miễn phí!">
+  
+  <!-- Google Fonts: Plus Jakarta Sans, Inter, Noto Sans SC -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome 6.5.1 CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            pastel: {
+              gray: '#F4F5F8',
+              surface: '#FFFFFF',
+              dark: '#1E2229',
+              darker: '#16191F'
+            },
+            emerald: {
+              brand: '#07C160',
+              hover: '#05AD55',
+              tint: '#E8F8EF',
+              border: '#A3E7BF'
+            },
+            gold: {
+              24: '#D4AF37',
+              light: '#F3E5AB'
+            },
+            alert: {
+              red: '#C23B3B',
+              tint: '#FDE8E8'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '"Inter"', 'sans-serif'],
+            chinese: ['"Noto Sans SC"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Canvas Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+</head>
+<body class="bg-[#F4F5F8] text-[#1E2229] antialiased selection:bg-[#07C160] selection:text-white">
+
+  <!-- ==========================================================================
+       HEADER & NAVIGATION BAR
+       ========================================================================== -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-gray-200/80 transition-all duration-300">
+    <!-- Top Announcement Ribbon -->
+    <div class="bg-[#1E2229] text-white text-[11px] sm:text-xs py-1.5 px-4">
+      <div class="max-w-7xl mx-auto flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="gold-badge-dark px-2 py-0.5 rounded-full text-[10px] font-bold">2026 FLAGSHIP</span>
+          <span class="hidden sm:inline text-gray-300">Đặc quyền công nghệ từ POL SOLUTION:</span>
+          <span class="text-amber-300 font-semibold">Tặng ngay 14 Ngày VIP Full Access khi hoàn thành Bài 3!</span>
+        </div>
+        
+        <!-- Accessibility Font Scaling (A- / A+) -->
+        <div class="flex items-center gap-2 border-l border-gray-700 pl-3">
+          <span class="text-gray-400 text-[11px] hidden md:inline">Cỡ chữ:</span>
+          <button id="btnFontDecrease" title="Thu nhỏ chữ" class="w-6 h-6 rounded bg-gray-800 hover:bg-gray-700 flex items-center justify-center font-bold text-xs text-gray-300">A-</button>
+          <span id="fontScaleIndicator" class="text-[11px] font-mono text-emerald-400 font-semibold">100%</span>
+          <button id="btnFontIncrease" title="Phóng to chữ" class="w-6 h-6 rounded bg-gray-800 hover:bg-gray-700 flex items-center justify-center font-bold text-xs text-gray-300">A+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo Left -->
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#07C160] to-[#049449] flex items-center justify-center shadow-md shadow-emerald-500/20 group-hover:scale-105 transition-transform">
+            <i class="fa-solid fa-shield-halved text-white text-xl"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-1.5 leading-none">
+              <span class="font-black text-xs tracking-widest uppercase gold-gradient-text">POL SOLUTION</span>
+              <span class="text-[9px] px-1.5 py-0.2 rounded bg-amber-100 text-amber-800 font-bold border border-amber-300">PRO</span>
+            </div>
+            <div class="text-xl sm:text-2xl font-black tracking-tight text-gray-900 group-hover:text-[#07C160] transition-colors leading-tight">
+              VietHoa<span class="text-[#07C160]">Talk</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Desktop Menu Links -->
+        <nav class="hidden lg:flex items-center space-x-7 text-sm font-semibold text-gray-600">
+          <a href="#pain-points" class="hover:text-[#07C160] transition-colors py-1">Giải Pháp 5 Nỗi Đau</a>
+          <a href="#tabs-ecosystem" class="hover:text-[#07C160] transition-colors py-1">Hệ Sinh Thái 4 Tab</a>
+          <a href="#curriculum" class="hover:text-[#07C160] transition-colors py-1">Lộ Trình 86 Bài</a>
+          <a href="#ai-assistant" class="hover:text-[#07C160] transition-colors py-1">Trợ Lý AI Live</a>
+          <a href="#niche-hub" class="hover:text-[#07C160] transition-colors py-1">Tiện Ích Ngách</a>
+          <a href="#pricing-drm" class="hover:text-[#07C160] transition-colors py-1">Bảng Giá & DRM</a>
+        </nav>
+
+        <!-- Right CTA Button -->
+        <div class="hidden sm:flex items-center gap-3">
+          <button class="trigger-open-register btn-emerald btn-emerald-glow px-5 py-2.5 rounded-2xl text-sm font-bold flex items-center gap-2 border border-amber-300/40">
+            <i class="fa-solid fa-gift text-amber-300"></i>
+            <span>DÙNG THỬ 14 TUẦN FREE</span>
+          </button>
+        </div>
+
+        <!-- Mobile menu hamburger -->
+        <div class="lg:hidden flex items-center gap-2">
+          <button class="trigger-open-register text-xs font-bold bg-[#07C160] text-white px-3 py-2 rounded-xl">
+            14 Tuần Free
+          </button>
+          <button id="mobileMenuBtn" onclick="document.getElementById('mobileNavDrawer').classList.toggle('hidden')" class="p-2 rounded-xl text-gray-600 hover:bg-gray-100">
+            <i class="fa-solid fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileNavDrawer" class="hidden lg:hidden bg-white border-b border-gray-200 px-4 pt-3 pb-6 space-y-3">
+      <a href="#pain-points" onclick="document.getElementById('mobileNavDrawer').classList.add('hidden')" class="block py-2 text-sm font-semibold text-gray-700 hover:text-emerald-600">Giải Pháp 5 Nỗi Đau</a>
+      <a href="#tabs-ecosystem" onclick="document.getElementById('mobileNavDrawer').classList.add('hidden')" class="block py-2 text-sm font-semibold text-gray-700 hover:text-emerald-600">Hệ Sinh Thái 4 Tab</a>
+      <a href="#curriculum" onclick="document.getElementById('mobileNavDrawer').classList.add('hidden')" class="block py-2 text-sm font-semibold text-gray-700 hover:text-emerald-600">Lộ Trình 86 Bài</a>
+      <a href="#ai-assistant" onclick="document.getElementById('mobileNavDrawer').classList.add('hidden')" class="block py-2 text-sm font-semibold text-gray-700 hover:text-emerald-600">Trợ Lý AI Live</a>
+      <a href="#niche-hub" onclick="document.getElementById('mobileNavDrawer').classList.add('hidden')" class="block py-2 text-sm font-semibold text-gray-700 hover:text-emerald-600">Tiện Ích Ngách & Quy Đổi Tệ</a>
+      <a href="#pricing-drm" onclick="document.getElementById('mobileNavDrawer').classList.add('hidden')" class="block py-2 text-sm font-semibold text-gray-700 hover:text-emerald-600">Bảng Giá & Khóa Phần Cứng DRM</a>
+      <div class="pt-2">
+        <button class="trigger-open-register w-full btn-emerald py-3 rounded-xl text-sm font-bold text-center">
+          DÙNG THỬ 14 TUẦN MIỄN PHÍ
+        </button>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ==========================================================================
+       SECTION 1: HERO SECTION (ẤN TƯỢNG ĐẦU TIÊN)
+       ========================================================================== -->
+  <section class="relative pt-12 pb-20 md:pt-16 md:pb-28 overflow-hidden bg-gradient-to-b from-[#F4F5F8] via-[#FFFFFF] to-[#F4F5F8]">
+    <!-- Ambient Background Lighting -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="absolute top-1/3 right-10 w-[400px] h-[400px] bg-amber-400/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- Top Badge (Gold 24K Border) -->
+      <div class="flex justify-center mb-6">
+        <div class="gold-badge px-4 py-1.5 rounded-full text-xs md:text-sm font-bold flex items-center gap-2 shadow-sm shimmer-effect">
+          <i class="fa-solid fa-sparkles text-amber-500"></i>
+          <span>✦ ĐỘT PHÁ CÔNG NGHỆ BỞI POL SOLUTION — TRIẾT LÝ AUDIO-FIRST & ZERO-WRITING ✦</span>
+        </div>
+      </div>
+
+      <!-- Main Headline & Subtitle -->
+      <div class="text-center max-w-4xl mx-auto space-y-4 mb-8">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-gray-900 leading-[1.18]">
+          BẬT PHẢN XẠ TIẾNG HOA GIAO TIẾP THỰC CHIẾN <br class="hidden sm:inline">
+          <span class="gold-gradient-text">KHÔNG CẦN TẬP VIẾT NÉT CHỮ HÁN!</span>
+        </h1>
+        <p class="text-base sm:text-lg md:text-xl text-gray-600 font-medium leading-relaxed max-w-3xl mx-auto">
+          Giải pháp ứng dụng AI tiên phong dành riêng cho <span class="text-gray-900 font-bold">Kỹ sư Nhà máy</span>, <span class="text-gray-900 font-bold">Chủ vựa Nông sản</span>, <span class="text-gray-900 font-bold">Dân buôn 1688/Taobao</span> & <span class="text-gray-900 font-bold">Quản lý Công xưởng Việt Nam</span>.
+        </p>
+
+        <!-- Target Audience Pills -->
+        <div class="flex flex-wrap items-center justify-center gap-2 pt-2 text-xs font-semibold text-gray-600">
+          <span class="px-3 py-1 bg-white rounded-full border border-gray-200 shadow-sm flex items-center gap-1.5">
+            <i class="fa-solid fa-industry text-emerald-600"></i> Kỹ Sư KCN & SMT
+          </span>
+          <span class="px-3 py-1 bg-white rounded-full border border-gray-200 shadow-sm flex items-center gap-1.5">
+            <i class="fa-solid fa-lemon text-amber-600"></i> Chủ Vựa Sầu Riêng Tiền Giang
+          </span>
+          <span class="px-3 py-1 bg-white rounded-full border border-gray-200 shadow-sm flex items-center gap-1.5">
+            <i class="fa-solid fa-bag-shopping text-blue-600"></i> Dân Buôn Sỉ 1688 / Sa Hà
+          </span>
+          <span class="px-3 py-1 bg-white rounded-full border border-gray-200 shadow-sm flex items-center gap-1.5">
+            <i class="fa-solid fa-truck-moving text-purple-600"></i> Logistics & Cửa Khẩu B2B
+          </span>
+        </div>
+      </div>
+
+      <!-- CTA Buttons Group -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+        <button class="trigger-open-register w-full sm:w-auto btn-emerald btn-emerald-glow py-4 px-8 rounded-2xl text-base md:text-lg font-black flex items-center justify-center gap-3 border-2 border-amber-300">
+          <i class="fa-solid fa-download text-amber-300"></i>
+          <span>TẢI APP & DÙNG THỬ 14 TUẦN FREE</span>
+        </button>
+        
+        <button class="trigger-open-demo w-full sm:w-auto py-4 px-8 rounded-2xl text-base md:text-lg font-bold bg-white text-gray-800 hover:text-[#07C160] hover:border-[#07C160] border border-gray-300 shadow-sm flex items-center justify-center gap-3 transition-all hover:shadow-md">
+          <div class="w-7 h-7 rounded-full bg-emerald-100 text-[#07C160] flex items-center justify-center text-xs">
+            <i class="fa-solid fa-play ml-0.5"></i>
+          </div>
+          <span>XEM DEMO WECHAT & AI VOICE</span>
+        </button>
+      </div>
+
+      <!-- Social Proof Metrics Bar -->
+      <div class="flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs sm:text-sm text-gray-500 mb-14">
+        <div class="flex items-center gap-2">
+          <div class="flex text-amber-400 text-xs">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <span class="font-bold text-gray-800">4.9/5</span> (18,500+ Kỹ sư & Chủ vựa)
+        </div>
+        <div class="flex items-center gap-1.5 text-gray-700 font-semibold">
+          <i class="fa-solid fa-ban text-red-500"></i> 100% Cắt bỏ chép nét chữ Hán
+        </div>
+        <div class="flex items-center gap-1.5 text-gray-700 font-semibold">
+          <i class="fa-solid fa-microchip text-emerald-600"></i> Khóa Thiết Bị SHA-256 DRM
+        </div>
+        <div class="flex items-center gap-1.5 text-gray-700 font-semibold">
+          <i class="fa-solid fa-shield-check text-blue-600"></i> Chuẩn Bảo Mật AES-256
+        </div>
+      </div>
+
+      <!-- Interactive Phone Mockup Center (3D/CSS Layout) -->
+      <div class="relative max-w-4xl mx-auto">
+        
+        <!-- Floating Badges Left & Right -->
+        <div class="hidden lg:block absolute -left-12 top-20 z-20 float-element">
+          <div class="glass-panel p-4 rounded-2xl shadow-xl border border-white/80 max-w-xs space-y-1">
+            <div class="flex items-center gap-2 text-xs font-bold text-emerald-600">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block animate-ping"></span>
+              <span>TRIẾT LÝ ZERO-WRITING</span>
+            </div>
+            <div class="text-sm font-bold text-gray-900">0% Tập viết nét chữ Hán thủ công</div>
+            <p class="text-xs text-gray-500">Tiết kiệm 70% thời gian, dồn 100% sức mạnh cho phản xạ Nghe - Nói & Gõ Pinyin.</p>
+          </div>
+        </div>
+
+        <div class="hidden lg:block absolute -right-12 top-48 z-20 float-element-delayed">
+          <div class="glass-panel p-4 rounded-2xl shadow-xl border border-white/80 max-w-xs space-y-1">
+            <div class="flex items-center gap-2 text-xs font-bold text-red-600">
+              <i class="fa-solid fa-shield-cat"></i>
+              <span>CULTURE GUARD ENGINE</span>
+            </div>
+            <div class="text-sm font-bold text-gray-900">Chặn từ cộc lốc (知道了, 嗯)</div>
+            <p class="text-xs text-gray-500">Tự động bắt lỗi thất lễ văn phòng & thay thế bằng câu lịch sự chuẩn bản xứ.</p>
+          </div>
+        </div>
+
+        <div class="hidden lg:block absolute -left-8 bottom-16 z-20 float-element">
+          <div class="glass-panel p-3.5 rounded-2xl shadow-xl border border-white/80 max-w-xs space-y-1">
+            <div class="flex items-center gap-2 text-xs font-bold text-amber-600">
+              <i class="fa-solid fa-fingerprint"></i>
+              <span>DEVICE BINDING DRM</span>
+            </div>
+            <div class="text-xs font-bold text-gray-900">1 Thiết bị = 1 Đăng ký mới</div>
+            <p class="text-[11px] text-gray-500">Chống gian lận dùng thử, hỗ trợ nhiều tài khoản giao ca nhà máy linh hoạt.</p>
+          </div>
+        </div>
+
+        <!-- Phone Frame Container -->
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <!-- Dynamic Island -->
+            <div class="phone-island">
+              <div class="phone-camera"></div>
+              <div class="phone-sensor"></div>
+            </div>
+
+            <!-- In-App Header -->
+            <div class="bg-gray-50 pt-9 pb-3 px-4 border-b border-gray-200 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <div class="w-6 h-6 rounded-lg bg-emerald-500 flex items-center justify-center text-white text-[10px]">
+                  <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <span class="font-black text-xs text-gray-800">VietHoaTalk Pro</span>
+                <span class="text-[9px] bg-emerald-100 text-emerald-800 font-bold px-1.5 py-0.2 rounded">v3.0</span>
+              </div>
+              <div class="flex items-center gap-2 text-xs text-gray-500">
+                <i class="fa-solid fa-wifi text-[10px]"></i>
+                <i class="fa-solid fa-battery-full text-emerald-600 text-[11px]"></i>
+              </div>
+            </div>
+
+            <!-- In-App Screen Content (Dynamic Tabs) -->
+            <div class="flex-1 overflow-y-auto p-4 space-y-3 text-left">
+              
+              <!-- Tab 1 Screen: Micro-Learning 3 Phút Loop -->
+              <div id="phone-screen-tab1" class="phone-tab-content space-y-3">
+                <div class="bg-emerald-50 border border-emerald-200 p-3 rounded-2xl">
+                  <div class="flex items-center justify-between text-[11px] font-bold text-emerald-800 mb-1">
+                    <span>BÀI 01 • SINH TỒN CÔNG XƯỞNG</span>
+                    <span class="text-emerald-600"><i class="fa-solid fa-bolt mr-1"></i>VCSF Loop</span>
+                  </div>
+                  <div class="text-sm font-bold text-gray-900 mb-0.5">Dừng Máy Khẩn Cấp (停机 - Tíngjī)</div>
+                  <div class="text-xs text-gray-500">Báo cáo an toàn điện và chập cháy phân xưởng</div>
+                </div>
+
+                <!-- Step 1: 30s Audio Context -->
+                <div class="bg-white p-3 rounded-xl border border-gray-100 shadow-sm space-y-2">
+                  <div class="flex items-center justify-between">
+                    <span class="text-[10px] font-bold text-gray-400 uppercase">⚡ BƯỚC 1 (30S): NGỮ CẢNH THỰC TẾ</span>
+                    <span class="text-[10px] text-emerald-600 font-bold">Audio AI Bản Xứ</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <button class="btn-play-simulated-audio w-9 h-9 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs hover:bg-emerald-600 shadow-sm">
+                      <i class="fa-solid fa-play ml-0.5"></i>
+                    </button>
+                    <!-- Audio Wave Simulator -->
+                    <div class="flex items-center gap-1 h-6 flex-1 px-2 bg-gray-50 rounded-lg">
+                      <div class="wave-bar h-2"></div>
+                      <div class="wave-bar h-4"></div>
+                      <div class="wave-bar h-6"></div>
+                      <div class="wave-bar h-5"></div>
+                      <div class="wave-bar h-3"></div>
+                      <div class="wave-bar h-5"></div>
+                      <div class="wave-bar h-4"></div>
+                      <div class="wave-bar h-2"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Step 2: 60s Chunks -->
+                <div class="bg-white p-3 rounded-xl border border-gray-100 shadow-sm space-y-1.5">
+                  <div class="text-[10px] font-bold text-gray-400 uppercase">⚡ BƯỚC 2 (60S): NẠP CHUNKS CỐT LÕI</div>
+                  <div class="p-2 bg-gray-50 rounded-lg text-xs space-y-1">
+                    <div class="font-bold text-emerald-800 font-chinese text-sm">停机，切断电源！</div>
+                    <div class="font-mono text-gray-500 text-[11px]">Tíngjī, qiēduàn diànyuán!</div>
+                    <div class="text-gray-700 text-[11px]">Đình cơ, thiết đoạn điện nguyên! (Dừng máy, ngắt nguồn điện!)</div>
+                  </div>
+                </div>
+
+                <!-- Step 3: 90s Shadowing Reflex -->
+                <div class="bg-white p-3 rounded-xl border border-gray-100 shadow-sm space-y-2">
+                  <div class="flex items-center justify-between">
+                    <span class="text-[10px] font-bold text-gray-400 uppercase">⚡ BƯỚC 3 (90S): PHẢN XẠ SHADOWING 3S</span>
+                    <span id="phoneShadowingTimer" class="hidden text-xs font-mono font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded">3.0s</span>
+                  </div>
+                  <button id="phoneShadowingTrigger" class="w-full py-2.5 rounded-xl bg-gray-900 text-white text-xs font-bold flex items-center justify-center gap-2 hover:bg-gray-800 transition-colors shadow">
+                    <i class="fa-solid fa-microphone text-emerald-400"></i>
+                    <span>Bấm Mic & Nhại Âm Trong 3 Giây</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Tab 2 Screen: WeChat Work Simulator -->
+              <div id="phone-screen-tab2" class="phone-tab-content hidden space-y-2.5">
+                <div class="bg-[#EDEDED] p-2 rounded-xl text-center text-xs font-semibold text-gray-700">
+                  <i class="fa-solid fa-building mr-1"></i> 企业微信 (WeChat Work) — 生产部 (Phòng Sản Xuất)
+                </div>
+
+                <!-- Chat history -->
+                <div class="space-y-2 text-xs">
+                  <!-- Received from Boss Zhang -->
+                  <div class="flex items-start gap-2">
+                    <div class="w-7 h-7 rounded-full bg-gray-400 text-white flex items-center justify-center font-bold text-[10px]">
+                      张
+                    </div>
+                    <div class="chat-bubble-received p-2.5 max-w-[80%]">
+                      <div class="text-[10px] text-gray-400 mb-0.5 font-bold">张经理 (Giám Đốc Trương)</div>
+                      <div class="font-chinese font-semibold text-gray-900 text-xs">3号注塑机的检验报告做好了吗？今天必须发给我。</div>
+                      <div class="text-[10px] text-gray-500 mt-1">Báo cáo kiểm tra máy ép nhựa số 3 đã xong chưa? Hôm nay phải gửi cho tôi.</div>
+                    </div>
+                  </div>
+
+                  <!-- Sent by User with Taboo Alert -->
+                  <div class="flex items-start justify-end gap-2">
+                    <div class="chat-bubble-taboo p-2.5 max-w-[85%] text-right">
+                      <div class="font-chinese font-bold text-sm">知道了</div>
+                      <div class="text-[10px] font-bold text-red-600 flex items-center justify-end gap-1 mt-1">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <span>Culture Guard Alert: Từ cộc lốc!</span>
+                      </div>
+                    </div>
+                    <div class="w-7 h-7 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold text-[10px]">
+                      Tôi
+                    </div>
+                  </div>
+
+                  <!-- Culture Guard Auto-Fix Suggestion -->
+                  <div class="p-2.5 bg-emerald-50 border border-emerald-300 rounded-xl space-y-1">
+                    <div class="text-[10px] font-bold text-emerald-800 uppercase flex items-center gap-1">
+                      <i class="fa-solid fa-wand-magic-sparkles"></i> Gợi ý câu chuẩn lễ nghi:
+                    </div>
+                    <div class="font-chinese text-xs font-bold text-gray-900">收到经理，5分钟内发给您。</div>
+                    <div class="text-[10px] text-gray-500">Shōudào jīnglǐ, 5 fēnzhōng nèi fā gěi nín.</div>
+                  </div>
+                </div>
+
+                <!-- Quick Chips -->
+                <div class="pt-1 flex flex-wrap gap-1">
+                  <span class="text-[10px] px-2 py-1 bg-white border border-gray-200 rounded-full text-gray-700">收到经理</span>
+                  <span class="text-[10px] px-2 py-1 bg-white border border-gray-200 rounded-full text-gray-700">我马上跟进</span>
+                  <span class="text-[10px] px-2 py-1 bg-white border border-gray-200 rounded-full text-gray-700">已发到邮箱</span>
+                </div>
+              </div>
+
+              <!-- Tab 3 Screen: Sổ Tay Tiện Ích Ngách -->
+              <div id="phone-screen-tab3" class="phone-tab-content hidden space-y-2.5">
+                <div class="bg-blue-50 border border-blue-200 p-2.5 rounded-xl">
+                  <div class="text-xs font-bold text-blue-900 mb-0.5">SỔ TAY TIỆN ÍCH NGÁCH</div>
+                  <div class="text-[10px] text-blue-700">One-Tap Copy & Công Cụ Nhà Xưởng / Nông Sản</div>
+                </div>
+
+                <!-- One Tap Copy Item 1 -->
+                <div class="p-2 bg-white rounded-xl border border-gray-200 flex items-center justify-between">
+                  <div>
+                    <div class="font-chinese font-bold text-xs text-gray-900">注塑机射嘴漏胶</div>
+                    <div class="text-[10px] text-gray-500">Rò rỉ keo đầu phun ép nhựa</div>
+                  </div>
+                  <button onclick="copyToClipboard('注塑机射嘴漏胶', 'thuật ngữ')" class="text-[10px] px-2 py-1 rounded bg-emerald-50 text-emerald-700 font-bold hover:bg-emerald-100 border border-emerald-200">
+                    <i class="fa-solid fa-copy"></i> 1-Chạm
+                  </button>
+                </div>
+
+                <!-- One Tap Copy Item 2 -->
+                <div class="p-2 bg-white rounded-xl border border-gray-200 flex items-center justify-between">
+                  <div>
+                    <div class="font-chinese font-bold text-xs text-gray-900">金枕榴莲 Brix 32%</div>
+                    <div class="text-[10px] text-gray-500">Sầu riêng Monthong độ ngọt 32%</div>
+                  </div>
+                  <button onclick="copyToClipboard('金枕榴莲 Brix 32%', 'thuật ngữ')" class="text-[10px] px-2 py-1 rounded bg-emerald-50 text-emerald-700 font-bold hover:bg-emerald-100 border border-emerald-200">
+                    <i class="fa-solid fa-copy"></i> 1-Chạm
+                  </button>
+                </div>
+
+                <!-- Camera OCR Scan Card -->
+                <div class="p-2.5 bg-gray-50 rounded-xl border border-gray-200 flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-lg bg-purple-100 text-purple-700 flex items-center justify-center text-sm">
+                    <i class="fa-solid fa-camera"></i>
+                  </div>
+                  <div class="flex-1">
+                    <div class="text-xs font-bold text-gray-900">Camera OCR Dịch Nhãn Máy</div>
+                    <div class="text-[10px] text-gray-500">Quét thông số biến tần, tờ khai hải quan</div>
+                  </div>
+                </div>
+
+                <!-- Hotline -->
+                <div class="p-2 bg-red-50 rounded-xl border border-red-200 flex items-center justify-between text-xs text-red-900">
+                  <span class="font-bold"><i class="fa-solid fa-phone-volume mr-1 text-red-600"></i> Hotline Cứu Hộ KCN:</span>
+                  <span class="font-mono font-bold text-red-700">1900-POL-SOS</span>
+                </div>
+              </div>
+
+              <!-- Tab 4 Screen: AI Voice Roleplay Partner -->
+              <div id="phone-screen-tab4" class="phone-tab-content hidden space-y-2.5">
+                <div class="bg-purple-50 border border-purple-200 p-2.5 rounded-xl flex items-center justify-between">
+                  <div>
+                    <div class="text-xs font-bold text-purple-900">AI VOICE PARTNER (1-1)</div>
+                    <div class="text-[10px] text-purple-700">Giả lập đối thoại với Giám đốc Đài Loan</div>
+                  </div>
+                  <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                </div>
+
+                <!-- Bi-Converter Box -->
+                <div class="p-3 bg-white rounded-xl border border-gray-200 space-y-2">
+                  <div class="text-[10px] font-bold text-gray-400 uppercase">BỘ CHUYỂN ĐỔI THOẠI 2 CHIỀU (VIỆT -> TRUNG)</div>
+                  <div class="p-2 bg-gray-50 rounded-lg text-xs space-y-1">
+                    <div class="text-gray-600 font-medium">🗣️ Bạn nói tiếng Việt: "Bảo trì xong rồi, chạy thử máy được chưa?"</div>
+                    <div class="font-chinese font-bold text-emerald-700 text-sm">🤖 AI chuyển tiếng Trung: 检修完毕，可以开机试车了吗？</div>
+                    <div class="font-mono text-[10px] text-emerald-800">Jiǎnxiū wánbì, kěyǐ kāijī shìchē le ma?</div>
+                  </div>
+                </div>
+
+                <!-- Mic Interaction -->
+                <div class="text-center py-2">
+                  <button class="w-12 h-12 rounded-full bg-gradient-to-tr from-emerald-500 to-teal-400 text-white text-xl shadow-lg shadow-emerald-500/30 flex items-center justify-center mx-auto hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-microphone"></i>
+                  </button>
+                  <div class="text-[11px] text-gray-500 mt-1 font-semibold">Nhấn giữ để nói tiếng Việt</div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- In-App Bottom Navigation (4 Tabs) -->
+            <div class="bg-white border-t border-gray-200 py-2 px-3 flex items-center justify-around">
+              <button data-tab="tab1" class="phone-nav-btn text-[#07C160] font-bold flex flex-col items-center text-[10px] focus:outline-none">
+                <i class="fa-solid fa-route text-sm mb-0.5"></i>
+                <span>3 Phút</span>
+              </button>
+              <button data-tab="tab2" class="phone-nav-btn text-gray-400 flex flex-col items-center text-[10px] focus:outline-none">
+                <i class="fa-brands fa-weixin text-sm mb-0.5"></i>
+                <span>WeChat</span>
+              </button>
+              <button data-tab="tab3" class="phone-nav-btn text-gray-400 flex flex-col items-center text-[10px] focus:outline-none">
+                <i class="fa-solid fa-book-bookmark text-sm mb-0.5"></i>
+                <span>Tiện Ích</span>
+              </button>
+              <button data-tab="tab4" class="phone-nav-btn text-gray-400 flex flex-col items-center text-[10px] focus:outline-none">
+                <i class="fa-solid fa-headset text-sm mb-0.5"></i>
+                <span>AI Voice</span>
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==========================================================================
+       SECTION 2: BẢNG GIẢI QUYẾT 5 NỖI ĐAU KINH ĐIỂN
+       ========================================================================== -->
+  <section id="pain-points" class="py-20 md:py-28 bg-[#FFFFFF] border-y border-gray-200/60 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="gold-badge px-3.5 py-1 rounded-full text-xs font-bold inline-flex items-center gap-1.5 mb-3">
+          <i class="fa-solid fa-circle-check text-amber-500"></i>
+          <span>MA TRẬN NĂNG LỰC THỰC CHIẾN POL SOLUTION</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight">
+          CHẤM DỨT 5 CƠN ÁC MỘNG HỌC TIẾNG HOA <br>
+          <span class="text-[#07C160]">CỦA NGƯỜI ĐI LÀM VIỆT NAM</span>
+        </h2>
+        <p class="text-gray-600 text-sm sm:text-base mt-3">
+          Sự khác biệt một trời một vực giữa phương pháp sách vở truyền thống và Vũ khí phản xạ tức thì từ VietHoaTalk.
+        </p>
+      </div>
+
+      <!-- 5 Pain Points Interactive Grid -->
+      <div class="space-y-6">
+        
+        <!-- Pain 1 -->
+        <div class="bg-[#F4F5F8] rounded-3xl p-6 md:p-8 border border-gray-200/90 hover:border-emerald-500 transition-all shadow-sm">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+            <div class="lg:col-span-5 space-y-2">
+              <div class="flex items-center gap-2 text-xs font-bold text-red-600">
+                <span class="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center font-black">1</span>
+                <span>NỖI ĐAU: TỐN 70% THỜI GIAN TẬP VIẾT CHỮ HÁN</span>
+              </div>
+              <h3 class="text-lg md:text-xl font-bold text-gray-900">Học cả năm trời vẫn "câm điếc", tay chép nét chữ nhưng miệng không dám mở.</h3>
+              <p class="text-xs sm:text-sm text-gray-500">Các trung tâm bắt chép sổ tay hàng ngàn Hán tự phức tạp. Đến khi vào nhà xưởng hay đối tác gọi WeChat thì hoảng loạn, không nhớ nổi chữ.</p>
+            </div>
+
+            <div class="lg:col-span-2 flex justify-center">
+              <div class="w-12 h-12 rounded-full bg-emerald-50 border-2 border-emerald-400 text-emerald-600 flex items-center justify-center text-lg font-bold shadow-sm">
+                <i class="fa-solid fa-arrow-right hidden lg:inline"></i>
+                <i class="fa-solid fa-arrow-down lg:hidden"></i>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5 bg-white p-5 rounded-2xl border-2 border-emerald-200 shadow-sm space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-emerald-700 uppercase tracking-wider">ĐỘT PHÁ VIETHOATALK: ZERO-WRITING</span>
+                <span class="text-[11px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-bold">Typing-First</span>
+              </div>
+              <div class="text-sm sm:text-base font-bold text-gray-900">Cắt bỏ 100% chép tay thủ công — Thay bằng gõ Pinyin La-tinh công sở.</div>
+              <p class="text-xs text-gray-600">Bạn chỉ cần gõ Pinyin trên bàn phím máy tính/điện thoại, máy tự sinh Hán tự chuẩn để chốt đơn Taobao/1688 và chat WeChat với sếp.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pain 2 -->
+        <div class="bg-[#F4F5F8] rounded-3xl p-6 md:p-8 border border-gray-200/90 hover:border-emerald-500 transition-all shadow-sm">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+            <div class="lg:col-span-5 space-y-2">
+              <div class="flex items-center gap-2 text-xs font-bold text-red-600">
+                <span class="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center font-black">2</span>
+                <span>NỖI ĐAU: NGỌNG ÂM VỊ & AI CHẤM ĐIỂM SAI</span>
+              </div>
+              <h3 class="text-lg md:text-xl font-bold text-gray-900">Lẫn lộn z/c/s với zh/ch/sh, nói bồi Tứ thanh khiến sếp nghe thành nghĩa bậy.</h3>
+              <p class="text-xs sm:text-sm text-gray-500">Ứng dụng ngoại quốc không hiểu khẩu hình người Việt, chấm điểm lung tung, phát âm sai lệch làm mất uy tín quản lý tại phân xưởng.</p>
+            </div>
+
+            <div class="lg:col-span-2 flex justify-center">
+              <div class="w-12 h-12 rounded-full bg-emerald-50 border-2 border-emerald-400 text-emerald-600 flex items-center justify-center text-lg font-bold shadow-sm">
+                <i class="fa-solid fa-arrow-right hidden lg:inline"></i>
+                <i class="fa-solid fa-arrow-down lg:hidden"></i>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5 bg-white p-5 rounded-2xl border-2 border-emerald-200 shadow-sm space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-emerald-700 uppercase tracking-wider">ĐỘT PHÁ VIETHOATALK: PHONETIC ALIGNMENT</span>
+                <span class="text-[11px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-bold">Chuẩn Việt</span>
+              </div>
+              <div class="text-sm sm:text-base font-bold text-gray-900">Động cơ đối chiếu ma trận âm vị chuyên biệt cho vòm họng người Việt.</div>
+              <p class="text-xs text-gray-600">Tự động soi độ rung đầu lưỡi, phân lập rạch ròi âm quấn lưỡi và sửa dứt điểm Tứ thanh chỉ sau 3 lần nhại âm.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pain 3 -->
+        <div class="bg-[#F4F5F8] rounded-3xl p-6 md:p-8 border border-gray-200/90 hover:border-emerald-500 transition-all shadow-sm">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+            <div class="lg:col-span-5 space-y-2">
+              <div class="flex items-center gap-2 text-xs font-bold text-red-600">
+                <span class="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center font-black">3</span>
+                <span>NỖI ĐAU: DỊCH NGƯỢC TỪNG CHỮ TRONG ĐẦU</span>
+              </div>
+              <h3 class="text-lg md:text-xl font-bold text-gray-900">Mất 5-10 giây ghép từng từ trong đầu trước khi nói, phản xạ ngập ngừng.</h3>
+              <p class="text-xs sm:text-sm text-gray-500">Trong nhịp độ gấp gáp của nhà máy hay khi xe hàng sắp qua biên giới, 5 giây ngập ngừng là hỏng cả chuyến xe hoặc sếp nổi cáu.</p>
+            </div>
+
+            <div class="lg:col-span-2 flex justify-center">
+              <div class="w-12 h-12 rounded-full bg-emerald-50 border-2 border-emerald-400 text-emerald-600 flex items-center justify-center text-lg font-bold shadow-sm">
+                <i class="fa-solid fa-arrow-right hidden lg:inline"></i>
+                <i class="fa-solid fa-arrow-down lg:hidden"></i>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5 bg-white p-5 rounded-2xl border-2 border-emerald-200 shadow-sm space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-emerald-700 uppercase tracking-wider">ĐỘT PHÁ VIETHOATALK: SHADOWING 3 GIÂY</span>
+                <span class="text-[11px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-bold">Phản Xạ Cực Nhanh</span>
+              </div>
+              <div class="text-sm sm:text-base font-bold text-gray-900">Direct Response Drill: Ép cơ miệng bật âm nhại lại sau tiếng píp 3s.</div>
+              <p class="text-xs text-gray-600">Cắt đứt hoàn toàn thói quen dịch nhẩm Việt sang Trung, hình thành thói quen phản xạ ngôn ngữ tự nhiên như tiếng mẹ đẻ.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pain 4 -->
+        <div class="bg-[#F4F5F8] rounded-3xl p-6 md:p-8 border border-gray-200/90 hover:border-emerald-500 transition-all shadow-sm">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+            <div class="lg:col-span-5 space-y-2">
+              <div class="flex items-center gap-2 text-xs font-bold text-red-600">
+                <span class="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center font-black">4</span>
+                <span>NỖI ĐAU: THIẾU TỪ VỰNG NGÁCH CÔNG XƯỞNG & THƯƠNG MẠI</span>
+              </div>
+              <h3 class="text-lg md:text-xl font-bold text-gray-900">App dạy "bạn thích ăn táo không?", vào xưởng gặp máy ép nhựa tắc keo thì tắc tị!</h3>
+              <p class="text-xs sm:text-sm text-gray-500">Giáo trình đại trà không có các từ chuyên sâu: C/O Form E, mã vùng trồng GACC, đứt chuỗi lạnh sầu riêng, bọc quặng bauxite.</p>
+            </div>
+
+            <div class="lg:col-span-2 flex justify-center">
+              <div class="w-12 h-12 rounded-full bg-emerald-50 border-2 border-emerald-400 text-emerald-600 flex items-center justify-center text-lg font-bold shadow-sm">
+                <i class="fa-solid fa-arrow-right hidden lg:inline"></i>
+                <i class="fa-solid fa-arrow-down lg:hidden"></i>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5 bg-white p-5 rounded-2xl border-2 border-emerald-200 shadow-sm space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-emerald-700 uppercase tracking-wider">ĐỘT PHÁ VIETHOATALK: SINO-VIETNAMESE MAPPING</span>
+                <span class="text-[11px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-bold">70% Hán-Việt</span>
+              </div>
+              <div class="text-sm sm:text-base font-bold text-gray-900">Khai thác 70% âm Hán-Việt tương đồng + Kho Chunks chuyên sâu ngách.</div>
+              <p class="text-xs text-gray-600">Người Việt học 1 biết 10 vì từ kỹ thuật gốc Hán phát âm tương đương (Đình cơ = Tíngjī, An toàn = Ānquán), kèm nút One-Tap Copy 1-chạm.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pain 5 -->
+        <div class="bg-[#F4F5F8] rounded-3xl p-6 md:p-8 border border-gray-200/90 hover:border-emerald-500 transition-all shadow-sm">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+            <div class="lg:col-span-5 space-y-2">
+              <div class="flex items-center gap-2 text-xs font-bold text-red-600">
+                <span class="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center font-black">5</span>
+                <span>NỖI ĐAU: THẤT LỄ / THÔ LỖ VỚI SẾP & ĐỐI TÁC TRUNG QUỐC</span>
+              </div>
+              <h3 class="text-lg md:text-xl font-bold text-gray-900">Nhắn tin cộc lốc "知道了" (Biết rồi) hay "嗯" (Ừ) bị sếp đánh giá xấc xược, mất việc.</h3>
+              <p class="text-xs sm:text-sm text-gray-500">Người Việt dịch từ "Dạ em biết rồi" thành "知道了" mà không hay biết đây là câu cấm kỵ ở công sở Trung Quốc, mang nghĩa coi thường người nói.</p>
+            </div>
+
+            <div class="lg:col-span-2 flex justify-center">
+              <div class="w-12 h-12 rounded-full bg-emerald-50 border-2 border-emerald-400 text-emerald-600 flex items-center justify-center text-lg font-bold shadow-sm">
+                <i class="fa-solid fa-arrow-right hidden lg:inline"></i>
+                <i class="fa-solid fa-arrow-down lg:hidden"></i>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5 bg-white p-5 rounded-2xl border-2 border-emerald-200 shadow-sm space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-emerald-700 uppercase tracking-wider">ĐỘT PHÁ VIETHOATALK: CULTURE GUARD ENGINE</span>
+                <span class="text-[11px] bg-red-100 text-red-700 px-2 py-0.5 rounded font-bold">Alert Red #C23B3B</span>
+              </div>
+              <div class="text-sm sm:text-base font-bold text-gray-900">Bộ lọc quét lỗi văn hóa công sở thời gian thực &lt; 200ms.</div>
+              <p class="text-xs text-gray-600">Chặn đứng tin nhắn cộc lốc, tự động gợi ý thay thế bằng: <em>"收到经理，5分钟内发给您。"</em> (Đã nhận thưa giám đốc, sẽ gửi trong 5 phút).</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Live Interactive Culture Guard Test Sandbox -->
+      <div class="mt-14 bg-gradient-to-br from-gray-900 via-[#1E2229] to-gray-900 text-white p-6 sm:p-8 rounded-3xl shadow-2xl border border-gray-800">
+        <div class="max-w-3xl mx-auto space-y-5">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-gray-800 pb-4">
+            <div>
+              <div class="flex items-center gap-2 text-xs font-bold text-emerald-400 uppercase tracking-wider">
+                <i class="fa-solid fa-microchip"></i>
+                <span>TRẢI NGHIỆM TRỰC TIẾP ĐỘNG CƠ CULTURE GUARD (FASTAPI REGEX ENGINE)</span>
+              </div>
+              <h3 class="text-lg sm:text-xl font-bold text-white mt-1">Thử nghiệm kiểm tra độ an toàn văn hóa tin nhắn của bạn:</h3>
+            </div>
+            <span class="text-xs bg-gray-800 text-gray-300 px-3 py-1 rounded-full border border-gray-700 font-mono">Độ trễ &lt; 200ms</span>
+          </div>
+
+          <!-- Quick Test Chips -->
+          <div class="space-y-1.5">
+            <div class="text-xs text-gray-400 font-medium">Bấm thử các từ ngữ công sở phổ biến:</div>
+            <div class="flex flex-wrap gap-2">
+              <button data-phrase="知道了" class="culture-test-chip text-xs bg-red-950/80 hover:bg-red-900 text-red-300 border border-red-700 px-3 py-1.5 rounded-xl font-chinese font-bold transition-all">
+                ⚠️ 知道了 (Biết rồi - Thất lễ)
+              </button>
+              <button data-phrase="嗯" class="culture-test-chip text-xs bg-red-950/80 hover:bg-red-900 text-red-300 border border-red-700 px-3 py-1.5 rounded-xl font-chinese font-bold transition-all">
+                ⚠️ 嗯 (Ừ - Cộc lốc)
+              </button>
+              <button data-phrase="干嘛" class="culture-test-chip text-xs bg-red-950/80 hover:bg-red-900 text-red-300 border border-red-700 px-3 py-1.5 rounded-xl font-chinese font-bold transition-all">
+                ⚠️ 干嘛 (Làm gì - Gắt gỏng)
+              </button>
+              <button data-phrase="好的，收到" class="culture-test-chip text-xs bg-emerald-950/80 hover:bg-emerald-900 text-emerald-300 border border-emerald-700 px-3 py-1.5 rounded-xl font-chinese font-bold transition-all">
+                ✅ 好的，收到 (Chuẩn lễ nghi)
+              </button>
+            </div>
+          </div>
+
+          <!-- Interactive Input Box -->
+          <div class="relative">
+            <input 
+              id="cultureGuardInput" 
+              type="text" 
+              placeholder="Nhập hoặc dán câu tiếng Trung bạn muốn kiểm tra văn phong..." 
+              class="w-full bg-gray-800/90 border border-gray-700 focus:border-emerald-500 rounded-2xl py-3.5 px-4 text-white text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/30 font-chinese placeholder:font-sans placeholder:text-gray-500"
+            />
+          </div>
+
+          <!-- Evaluation Result Box (Live Javascript) -->
+          <div id="cultureGuardResult" class="transition-all duration-300">
+            <div class="text-sm text-gray-400 italic p-3 bg-gray-800/50 rounded-xl border border-gray-800">
+              <i class="fa-solid fa-circle-info mr-1 text-blue-400"></i> Bấm các nút thử ở trên hoặc nhập câu vào ô để xem Culture Guard phát hiện từ cấm kỵ.
+            </div>
+          </div>
+
+          <!-- Action Button to apply fix -->
+          <button id="cultureGuardFixBtn" class="hidden w-full py-2.5 px-4 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-2 shadow-lg transition-colors">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <span>Dùng Gợi Ý Chuẩn Bản Xứ Ngay Lập Tức</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==========================================================================
+       SECTION 3: HỆ SINH THÁI 4 TAB UI & CÔNG NGHỆ AI THÔNG MINH
+       ========================================================================== -->
+  <section id="tabs-ecosystem" class="py-20 md:py-28 bg-[#F4F5F8]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="gold-badge px-3.5 py-1 rounded-full text-xs font-bold inline-flex items-center gap-1.5 mb-3">
+          <i class="fa-solid fa-layer-group text-amber-500"></i>
+          <span>KIẾN TRÚC UI/UX FLUTTER CAO CẤP</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight">
+          HỆ SINH THÁI 4 TAB UI ĐỘT PHÁ <br>
+          <span class="gold-gradient-text">THIẾT KẾ CHO MÔI TRƯỜNG THỰC CHIẾN</span>
+        </h2>
+        <p class="text-gray-600 text-sm sm:text-base mt-3">
+          Tối ưu Thumb-Zone bấm 1 ngón tay tại công xưởng và bến bãi. Tích hợp Dynamic Text Scaling đọc rõ dưới nắng hè.
+        </p>
+      </div>
+
+      <!-- 4 Cards Grid with Gold 24K Hover Borders -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Tab 1 Card -->
+        <div class="bg-white rounded-3xl p-8 border border-gray-200/90 hover:border-amber-400 hover:shadow-2xl transition-all duration-300 relative group flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-[#07C160] flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-route"></i>
+              </div>
+              <span class="text-xs font-bold px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
+                TAB 1 NAVIGATION
+              </span>
+            </div>
+
+            <div>
+              <h3 class="text-xl sm:text-2xl font-black text-gray-900 group-hover:text-emerald-600 transition-colors">
+                Lộ Trình Micro-Learning 3 Phút
+              </h3>
+              <p class="text-xs font-bold text-amber-600 uppercase tracking-wider mt-1">86 Bài Học VCSF 4 Tầng Tăng Tiến</p>
+            </div>
+
+            <p class="text-sm text-gray-600 leading-relaxed">
+              Giải phóng người học khỏi các buổi học dài lê thê buồn ngủ. Mỗi bài học cô đọng chuẩn 3 phút gồm 3 bước vi mô:
+            </p>
+
+            <ul class="space-y-2 text-xs sm:text-sm text-gray-700">
+              <li class="flex items-start gap-2">
+                <i class="fa-solid fa-bolt text-amber-500 mt-1"></i>
+                <span><strong>30s Ngữ cảnh thực tế:</strong> Nghe audio AI mô phỏng tình huống nhà xưởng, cảng vụ.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fa-solid fa-bolt text-amber-500 mt-1"></i>
+                <span><strong>60s Nạp Chunks cốt lõi:</strong> Tiếp thu 3-5 cụm từ chức năng kèm Pinyin & âm Hán-Việt.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fa-solid fa-bolt text-amber-500 mt-1"></i>
+                <span><strong>90s Thực chiến phản xạ:</strong> Gõ Bính âm La-tinh hoặc nhại âm Shadowing 3s có rung phản hồi.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="pt-6 border-t border-gray-100 mt-6 flex items-center justify-between text-xs">
+            <span class="text-gray-500"><i class="fa-solid fa-unlock text-emerald-500 mr-1"></i> Bài 1 & 2 trải nghiệm tự do</span>
+            <span class="font-bold text-amber-600">Bài 3 điểm chặn kích hoạt VIP</span>
+          </div>
+        </div>
+
+        <!-- Tab 2 Card -->
+        <div class="bg-white rounded-3xl p-8 border border-gray-200/90 hover:border-amber-400 hover:shadow-2xl transition-all duration-300 relative group flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="w-14 h-14 rounded-2xl bg-green-100 text-[#07C160] flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                <i class="fa-brands fa-weixin"></i>
+              </div>
+              <span class="text-xs font-bold px-3 py-1 rounded-full bg-green-50 text-green-700 border border-green-200">
+                TAB 2 NAVIGATION
+              </span>
+            </div>
+
+            <div>
+              <h3 class="text-xl sm:text-2xl font-black text-gray-900 group-hover:text-emerald-600 transition-colors">
+                WeChat Work Simulator
+              </h3>
+              <p class="text-xs font-bold text-red-600 uppercase tracking-wider mt-1">Tích Hợp Culture Guard Alert Red #C23B3B</p>
+            </div>
+
+            <p class="text-sm text-gray-600 leading-relaxed">
+              Mô phỏng 99% trải nghiệm nhắn tin điều hành trên WeChat Work của các doanh nghiệp Đài Loan / Trung Quốc:
+            </p>
+
+            <ul class="space-y-2 text-xs sm:text-sm text-gray-700">
+              <li class="flex items-start gap-2">
+                <i class="fa-solid fa-shield-halved text-red-500 mt-1"></i>
+                <span><strong>Quét từ cấm kỵ thời gian thực:</strong> Tự động chặn khi người dùng gõ câu cộc lốc (知道了, 嗯).</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fa-solid fa-wand-magic-sparkles text-emerald-500 mt-1"></i>
+                <span><strong>1-Click Replace:</strong> Bấm 1 chạm để chuyển ngay câu cộc lốc sang câu kính ngữ chuyên nghiệp.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fa-solid fa-layer-group text-blue-500 mt-1"></i>
+                <span><strong>Quick-Chips công xưởng:</strong> Dải phím gợi ý sẵn các câu trả lời sếp thường gặp nhất.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="pt-6 border-t border-gray-100 mt-6 flex items-center justify-between text-xs">
+            <span class="text-gray-500"><i class="fa-solid fa-bolt text-amber-500 mr-1"></i> Phản hồi Regex &lt; 200ms</span>
+            <span class="font-bold text-emerald-600">Được sếp đánh giá cao</span>
+          </div>
+        </div>
+
+        <!-- Tab 3 Card -->
+        <div class="bg-white rounded-3xl p-8 border border-gray-200/90 hover:border-amber-400 hover:shadow-2xl transition-all duration-300 relative group flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="w-14 h-14 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-book-bookmark"></i>
+              </div>
+              <span class="text-xs font-bold px-3 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-200">
+                TAB 3 NAVIGATION
+              </span>
+            </div>
+
+            <div>
+              <h3 class="text-xl sm:text-2xl font-black text-gray-900 group-hover:text-emerald-600 transition-colors">
+                Sổ Tay Tiện Ích Ngách
+              </h3>
+              <p class="text-xs font-bold text-blue-600 uppercase tracking-wider mt-1">One-Tap Copy, Camera OCR & Hotline</p>
+            </div>
+
+            <p class="text-sm text-gray-600 leading-relaxed">
+              Túi công cụ cứu sinh giúp xử lý nhanh mọi phát sinh tại bến bãi, phòng lab hay cửa khẩu:
+            </p>
+
+            <ul class="space-y-2 text-xs sm:text-sm text-gray-700">
+              <li class="flex items-start gap-2">
+                <i class="fa-solid fa-copy text-emerald-500 mt-1"></i>
+                <span><strong>One-Tap Copy 1-Chạm:</strong> Sao chép nhanh thuật ngữ Giản thể dán ngay vào Taobao, 1688, Alipay.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fa-solid fa-camera text-purple-500 mt-1"></i>
+                <span><strong>Camera OCR Scan:</strong> Chụp ảnh nhãn máy, lỗi biến tần, tờ khai hải quan bóc tách Pinyin tức thì.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fa-solid fa-calculator text-amber-500 mt-1"></i>
+                <span><strong>Bộ quy đổi ngoại tệ:</strong> Cập nhật tỷ giá RMB - VNĐ - USD thương mại thời gian thực.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fa-solid fa-phone-volume text-red-500 mt-1"></i>
+                <span><strong>Hotline khẩn cấp:</strong> Danh bạ cứu hộ nhà xưởng, đường dây nóng hải quan, công ty giám định.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="pt-6 border-t border-gray-100 mt-6 flex items-center justify-between text-xs">
+            <span class="text-gray-500"><i class="fa-solid fa-check text-emerald-500 mr-1"></i> Hơn 2,500 thuật ngữ ngách</span>
+            <span class="font-bold text-blue-600">Dùng mượt khi Offline</span>
+          </div>
+        </div>
+
+        <!-- Tab 4 Card -->
+        <div class="bg-white rounded-3xl p-8 border border-gray-200/90 hover:border-amber-400 hover:shadow-2xl transition-all duration-300 relative group flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="w-14 h-14 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-headset"></i>
+              </div>
+              <span class="text-xs font-bold px-3 py-1 rounded-full bg-purple-50 text-purple-700 border border-purple-200">
+                TAB 4 NAVIGATION
+              </span>
+            </div>
+
+            <div>
+              <h3 class="text-xl sm:text-2xl font-black text-gray-900 group-hover:text-emerald-600 transition-colors">
+                AI Voice Roleplay Partner
+              </h3>
+              <p class="text-xs font-bold text-purple-600 uppercase tracking-wider mt-1">Đổi Thoại 2 Chiều & Shadowing 3s</p>
+            </div>
+
+            <p class="text-sm text-gray-600 leading-relaxed">
+              Trợ lý luyện nói 1-1 không biết mệt mỏi, mô phỏng chân thực các nhân vật AI thường gặp:
+            </p>
+
+            <ul class="space-y-2 text-xs sm:text-sm text-gray-700">
+              <li class="flex items-start gap-2">
+                <i class="fa-solid fa-users text-purple-500 mt-1"></i>
+                <span><strong>Giả lập 4 Nhân Vật AI:</strong> Sếp Trương (Nhà máy), Chủ vựa Lưu (Nông sản), Shop chủ (1688), Tài xế Lý (EV Taxi).</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fa-solid fa-language text-emerald-500 mt-1"></i>
+                <span><strong>Bi-Converter Thoại 2 Chiều:</strong> Nói tiếng Việt vào Mic -> AI tự dịch và phát câu tiếng Trung kèm 3 sắc thái (Trang trọng / Khẩu lệnh / Mặc cả).</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fa-solid fa-stopwatch text-red-500 mt-1"></i>
+                <span><strong>Timer Shadowing 3s:</strong> Đếm ngược nhại âm chuẩn tốc độ nói của người bản xứ.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="pt-6 border-t border-gray-100 mt-6 flex items-center justify-between text-xs">
+            <span class="text-gray-500"><i class="fa-solid fa-waveform text-purple-500 mr-1"></i> Streaming Voice AI</span>
+            <span class="font-bold text-purple-600">Độ trễ thấp &lt; 200ms</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==========================================================================
+       SECTION 4: LỘ TRÌNH 86 BÀI HỌC VCSF (INTERACTIVE ACCORDION & FILTER)
+       ========================================================================== -->
+  <section id="curriculum" class="py-20 md:py-28 bg-[#FFFFFF] border-y border-gray-200/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="gold-badge px-3.5 py-1 rounded-full text-xs font-bold inline-flex items-center gap-1.5 mb-3">
+          <i class="fa-solid fa-graduation-cap text-amber-500"></i>
+          <span>VCSF / VCLF COMPETENCY FRAMEWORK</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight">
+          LỘ TRÌNH 86 BÀI HỌC THỰC CHIẾN <br>
+          <span class="text-[#07C160]">4 TẦNG NĂNG LỰC TỪ NHÀ XƯỞNG ĐẾN ĐÀM PHÁN</span>
+        </h2>
+        <p class="text-gray-600 text-sm sm:text-base mt-3">
+          Toàn bộ tình huống được đúc kết từ thực tế sản xuất tại các KCN Bắc Ninh, Hải Phòng, Bình Dương và các cửa khẩu phía Bắc.
+        </p>
+
+        <!-- Lesson 3 Gate Alert Banner -->
+        <div class="mt-6 bg-gradient-to-r from-amber-500/10 via-amber-500/20 to-amber-500/10 border border-amber-400 p-4 rounded-2xl flex items-center justify-between flex-col sm:flex-row gap-3 text-left">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-amber-500 text-white flex items-center justify-center font-black text-lg shadow-sm">
+              <i class="fa-solid fa-key"></i>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-amber-900 uppercase">CHÍNH SÁCH MỞ KHÓA BẢN QUYỀN POL SOLUTION:</div>
+              <div class="text-xs text-amber-800">
+                Học viên được tự do học <strong>Bài 1 & 2</strong>. Khi chạm đến <strong>Bài 3</strong>, hoàn tất đăng ký để nhận ngay <span class="font-bold underline text-amber-950">BONUS 14 NGÀY FULL VIP ACCESS!</span>
+              </div>
+            </div>
+          </div>
+          <button class="trigger-open-register shrink-0 px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-bold text-xs shadow hover:brightness-105">
+            Đăng Ký Nhận VIP Ngay
+          </button>
+        </div>
+      </div>
+
+      <!-- Tier Filters & Search Bar -->
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
+        <!-- Tier Filter Buttons -->
+        <div class="flex flex-wrap items-center gap-2 w-full md:w-auto">
+          <button data-tier="all" class="tier-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-emerald-600 text-white shadow-sm transition-all">
+            Tất Cả (86 Bài)
+          </button>
+          <button data-tier="1" class="tier-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-white text-gray-700 border border-gray-200 hover:border-emerald-400 transition-all">
+            Tầng 1: Sinh Tồn Công Xưởng (1-20)
+          </button>
+          <button data-tier="2" class="tier-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-white text-gray-700 border border-gray-200 hover:border-emerald-400 transition-all">
+            Tầng 2: Văn Phòng & WeChat (21-45)
+          </button>
+          <button data-tier="3" class="tier-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-white text-gray-700 border border-gray-200 hover:border-emerald-400 transition-all">
+            Tầng 3: Chuyên Môn Ngách (46-70)
+          </button>
+          <button data-tier="4" class="tier-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-white text-gray-700 border border-gray-200 hover:border-emerald-400 transition-all">
+            Tầng 4: Đàm Phán & GACC (71-86)
+          </button>
+        </div>
+
+        <!-- Search Input -->
+        <div class="relative w-full md:w-72">
+          <input 
+            id="curriculumSearch" 
+            type="text" 
+            placeholder="Tìm theo từ khóa (SMT, sầu riêng, VAT...)" 
+            class="w-full bg-[#F4F5F8] border border-gray-300 focus:border-emerald-500 rounded-xl py-2 pl-9 pr-3 text-xs focus:outline-none focus:ring-1 focus:ring-emerald-500"
+          />
+          <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-gray-400 text-xs"></i>
+        </div>
+      </div>
+
+      <!-- Dynamic Curriculum List (Rendered by JS) -->
+      <div id="curriculumList" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- Injected via app.js -->
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==========================================================================
+       SECTION 5: ĐẶC QUYỀN DÙNG THỬ & BẢO MẬT PHẦN CỨNG (OFFER & DRM)
+       ========================================================================== -->
+  <section id="pricing-drm" class="py-20 md:py-28 bg-[#1E2229] text-white relative overflow-hidden">
+    <!-- Glow spots -->
+    <div class="absolute -top-32 -left-32 w-96 h-96 bg-amber-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+    <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-emerald-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="gold-badge-dark px-3.5 py-1 rounded-full text-xs font-bold inline-flex items-center gap-1.5 mb-3">
+          <i class="fa-solid fa-crown text-amber-300"></i>
+          <span>CHÍNH SÁCH BẢO MẬT PHẦN CỨNG & GÓI ƯU ĐÃI ĐẶC QUYỀN</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight">
+          DÙNG THỬ 14 TUẦN MIỄN PHÍ <br>
+          <span class="gold-gradient-text">CÔNG NGHỆ KHÓA ĐỊNH DANH THIẾT BỊ DRM</span>
+        </h2>
+        <p class="text-gray-400 text-sm sm:text-base mt-3">
+          Cam kết bảo vệ quyền lợi học viên chính trực. 1 Thiết bị = 1 Lượt kích hoạt mới thông qua mã băm SHA-256 chống gian lận.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Left: 24K Gold VIP Privilege Card -->
+        <div class="lg:col-span-7 gold-card-premium-dark rounded-3xl p-8 sm:p-10 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="px-3.5 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-black border border-amber-500/40 tracking-wider">
+                FLAGSHIP 2026 EDITION
+              </span>
+              <div class="text-right">
+                <div class="text-xs text-gray-400 line-through">Giá gốc: 2.800.000 ₫</div>
+                <div class="text-2xl sm:text-3xl font-black text-emerald-400">0 ₫ / 14 TUẦN</div>
+              </div>
+            </div>
+
+            <h3 class="text-2xl sm:text-3xl font-black text-white mb-4">
+              Gói Kích Hoạt Thiết Bị VietHoaTalk Pro
+            </h3>
+            <p class="text-sm text-gray-300 leading-relaxed mb-6">
+              Trải nghiệm toàn diện nền tảng học tiếng Hoa thực chiến số 1 Việt Nam. Kích hoạt tại Bài học số 3 nhận ngay ưu đãi kép:
+            </p>
+
+            <div class="space-y-4 text-sm">
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xs mt-0.5 shrink-0">
+                  <i class="fa-solid fa-check"></i>
+                </div>
+                <div>
+                  <strong class="text-white">Dùng thử 14 Tuần (98 Ngày):</strong> Truy cập miễn phí kho bài học sinh tồn công xưởng, phát âm Phonics và tra cứu sổ tay ngách.
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 flex items-center justify-center text-xs mt-0.5 shrink-0">
+                  <i class="fa-solid fa-gift"></i>
+                </div>
+                <div>
+                  <strong class="text-amber-300">Tặng Thêm 14 Ngày VIP Full Access:</strong> Mở khóa toàn bộ 86 Bài học VCSF, đàm phán hợp đồng B2B, hoàn thuế VAT và không giới hạn tương tác AI Voice.
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center text-xs mt-0.5 shrink-0">
+                  <i class="fa-solid fa-users"></i>
+                </div>
+                <div>
+                  <strong class="text-white">Hỗ Trợ Multi-Account Trên 1 Máy:</strong> Cho phép nhiều kỹ sư/công nhân đăng nhập trên 1 điện thoại công vụ mà không bị xung đột bản quyền.
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center text-xs mt-0.5 shrink-0">
+                  <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div>
+                  <strong class="text-white">Bảo Vệ Bản Quyền DRM AES-256:</strong> Chống quay/chụp màn hình (FLAG_SECURE) và mã hóa bài học an toàn tối đa.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-gray-800 flex flex-col sm:flex-row items-center gap-4">
+            <button class="trigger-open-register w-full sm:w-auto btn-emerald py-3.5 px-8 rounded-2xl text-base font-black flex items-center justify-center gap-2 border border-amber-300/40">
+              <i class="fa-solid fa-bolt text-amber-300"></i>
+              <span>KÍCH HOẠT DÙNG THỬ NGAY</span>
+            </button>
+            <span class="text-xs text-gray-400 text-center sm:text-left">
+              <i class="fa-solid fa-lock text-emerald-400 mr-1"></i> Không yêu cầu thẻ tín dụng • Kích hoạt 30 giây
+            </span>
+          </div>
+        </div>
+
+        <!-- Right: Hardware Device Binding Live Simulator -->
+        <div class="lg:col-span-5 bg-gray-900/90 rounded-3xl p-8 border border-gray-800 flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2 text-xs font-bold text-amber-400">
+                <i class="fa-solid fa-microchip"></i>
+                <span>DEVICE BINDING ARCHITECTURE</span>
+              </div>
+              <span class="text-[10px] bg-gray-800 text-gray-400 px-2 py-0.5 rounded font-mono">SHA-256 DRIVER</span>
+            </div>
+
+            <h4 class="text-xl font-bold text-white">Kiểm Tra Khóa Phần Cứng Máy Này</h4>
+            <p class="text-xs text-gray-400 leading-relaxed">
+              Mỗi thiết bị thu thập thông số CPU ID + Mainboard UUID + OS Serial để tạo mã định danh duy nhất. Xóa ứng dụng cài lại vẫn bảo toàn trạng thái bản quyền.
+            </p>
+
+            <!-- Device Binding Simulator Result Box -->
+            <div id="deviceBindingResult" class="min-h-[90px] flex items-center justify-center">
+              <div class="text-xs text-gray-500 text-center p-4 border border-dashed border-gray-800 rounded-xl w-full">
+                <i class="fa-solid fa-fingerprint text-2xl text-gray-600 mb-2"></i>
+                <p>Bấm nút bên dưới để mô phỏng quét chữ ký phần cứng và kiểm tra tính hợp lệ của máy bạn.</p>
+              </div>
+            </div>
+          </div>
+
+          <button id="btnScanDeviceBinding" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-500 hover:brightness-110 text-gray-900 font-bold text-xs flex items-center justify-center gap-2 shadow-lg transition-all">
+            <i class="fa-solid fa-microchip"></i>
+            <span>Quét Định Danh Phần Cứng Máy Này</span>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==========================================================================
+       SECTION 6: CHATBOT TƯ VẤN AI & PROMPT BUILDER ASSISTANT (INTERACTIVE LIVE)
+       ========================================================================== -->
+  <section id="ai-assistant" class="py-20 md:py-28 bg-[#FFFFFF] border-b border-gray-200/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <div class="gold-badge px-3.5 py-1 rounded-full text-xs font-bold inline-flex items-center gap-1.5 mb-3">
+          <i class="fa-solid fa-robot text-amber-500"></i>
+          <span>INTERACTIVE AI PROMPT ENGINE</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight">
+          TRỢ LÝ AI TẠO KỊCH BẢN THỰC CHIẾN <br>
+          <span class="text-[#07C160]">CẦM TAY CHỈ VIỆC THEO TỪNG VAI TRÒ</span>
+        </h2>
+        <p class="text-gray-600 text-sm sm:text-base mt-3">
+          Chọn lĩnh vực công tác của bạn. AI của POL SOLUTION sẽ tự động mở rộng thành System Prompt chuyên sâu, mẫu câu Pinyin và khuyến cáo văn hóa tức thì.
+        </p>
+      </div>
+
+      <div class="max-w-4xl mx-auto bg-[#F4F5F8] rounded-3xl p-6 sm:p-8 border border-gray-200/90 shadow-xl space-y-6">
+        
+        <!-- Controls: Select Role & Trigger -->
+        <div class="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
+          <div class="sm:col-span-8">
+            <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+              Chọn Lĩnh Vực / Nghề Nghiệp Của Bạn:
+            </label>
+            <select id="aiRoleSelect" class="w-full bg-white border border-gray-300 rounded-xl py-3 px-4 text-sm font-semibold text-gray-800 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500">
+              <option value="engineer">🏭 Kỹ Sư Nhà Máy SMT & Ép Nhựa (Báo sự cố máy tắc keo)</option>
+              <option value="durian">🥭 Chủ Vựa Sầu Riêng Tiền Giang (Khiếu nại đứt chuỗi lạnh GACC)</option>
+              <option value="trader">📦 Dân Buôn Sỉ 1688 / Sa Hà (Mặc cả 500 áo khoác & bao ship)</option>
+              <option value="logistics">🚛 Quản Lý Cửa Khẩu & Hải Quan (Thông quan luồng xanh C/O Form E)</option>
+            </select>
+          </div>
+
+          <div class="sm:col-span-4 flex items-end">
+            <button id="aiGeneratePromptBtn" class="w-full btn-emerald py-3 px-4 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 shadow">
+              <i class="fa-solid fa-wand-magic-sparkles text-amber-300"></i>
+              <span>Tạo Kịch Bản Mới</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- AI Output Box (Live Javascript Injected) -->
+        <div id="aiPromptOutput" class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm transition-all min-h-[350px]">
+          <!-- Loaded via app.js -->
+        </div>
+
+        <!-- Copy Prompt Button -->
+        <div class="flex justify-end">
+          <button id="aiCopyPromptBtn" class="px-5 py-2.5 rounded-xl bg-gray-900 text-white text-xs font-bold hover:bg-gray-800 flex items-center gap-2 shadow transition-all">
+            <i class="fa-solid fa-copy text-emerald-400"></i>
+            <span>Sao Chép Toàn Bộ Kịch Bản & Prompt</span>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==========================================================================
+       SECTION: TIỆN ÍCH NGÁCH & BỘ QUY ĐỔI NGOẠI TỆ REALTIME
+       ========================================================================== -->
+  <section id="niche-hub" class="py-20 md:py-28 bg-[#F4F5F8]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="gold-badge px-3.5 py-1 rounded-full text-xs font-bold inline-flex items-center gap-1.5 mb-3">
+          <i class="fa-solid fa-toolbox text-amber-500"></i>
+          <span>NICHE HUB UTILITIES</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight">
+          BỘ CÔNG CỤ CỨU NGUY NHÀ XƯỞNG <br>
+          <span class="gold-gradient-text">& QUY ĐỔI NGOẠI TỆ THƯƠNG MẠI THỜI GIAN THỰC</span>
+        </h2>
+        <p class="text-gray-600 text-sm sm:text-base mt-3">
+          Tích hợp sẵn máy tính quy đổi tiền Tệ (RMB) - VNĐ - USD, danh bạ đường dây nóng và bộ từ vựng 1-Chạm Copy.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Left: Currency Converter Interactive Tool -->
+        <div class="lg:col-span-6 bg-white rounded-3xl p-6 sm:p-8 border border-gray-200 shadow-sm space-y-6">
+          <div class="flex items-center justify-between border-b border-gray-100 pb-4">
+            <div>
+              <div class="text-xs font-bold text-emerald-600 uppercase">TIỆN ÍCH THƯƠNG MẠI</div>
+              <h3 class="text-lg font-bold text-gray-900">Máy Tính Quy Đổi Nhân Dân Tệ (RMB)</h3>
+            </div>
+            <div class="w-10 h-10 rounded-xl bg-emerald-50 text-[#07C160] flex items-center justify-center text-lg">
+              <i class="fa-solid fa-coins"></i>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <div>
+              <label class="block text-xs font-bold text-gray-700 uppercase mb-1">
+                Số Tiền Tệ Trung Quốc (RMB / ¥):
+              </label>
+              <div class="relative">
+                <input 
+                  id="calcRmbInput" 
+                  type="number" 
+                  value="1000" 
+                  min="1"
+                  class="w-full bg-[#F4F5F8] border border-gray-300 rounded-xl py-3 px-4 text-base font-bold text-gray-900 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 pl-10"
+                />
+                <span class="absolute left-4 top-3.5 text-gray-500 font-bold">¥</span>
+              </div>
+            </div>
+
+            <!-- Calculated Outputs -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              <div class="bg-emerald-50 border border-emerald-200 p-4 rounded-2xl">
+                <div class="text-xs text-emerald-700 font-semibold mb-1">Quy ra Tiền Việt Nam (VNĐ):</div>
+                <div id="calcVndOutput" class="text-xl sm:text-2xl font-black text-emerald-800 font-mono">
+                  3,585,000 ₫
+                </div>
+              </div>
+
+              <div class="bg-blue-50 border border-blue-200 p-4 rounded-2xl">
+                <div class="text-xs text-blue-700 font-semibold mb-1">Quy ra Đô La Mỹ (USD):</div>
+                <div id="calcUsdOutput" class="text-xl sm:text-2xl font-black text-blue-800 font-mono">
+                  $141.03
+                </div>
+              </div>
+            </div>
+
+            <div id="calcCurrentRate" class="text-[11px] text-gray-500 italic text-right">
+              Tỷ giá thương mại tham khảo: 1 RMB ≈ 3,585 VNĐ
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: One-Tap Copy Vocabulary & Emergency Hotline -->
+        <div class="lg:col-span-6 space-y-4">
+          <div class="bg-white rounded-3xl p-6 sm:p-8 border border-gray-200 shadow-sm space-y-4">
+            <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+              <div>
+                <div class="text-xs font-bold text-blue-600 uppercase">ONE-TAP COPY (1-CHẠM)</div>
+                <h3 class="text-lg font-bold text-gray-900">Từ Khóa Chống "Đơ" Khi Làm Việc</h3>
+              </div>
+              <span class="text-xs bg-blue-50 text-blue-700 px-2.5 py-1 rounded-full font-bold">Dán Vào WeChat</span>
+            </div>
+
+            <div class="space-y-2.5 text-xs">
+              <div class="p-3 bg-[#F4F5F8] rounded-xl flex items-center justify-between hover:bg-emerald-50 transition-colors">
+                <div>
+                  <div class="font-chinese font-bold text-sm text-gray-900">模具注塑压力偏低</div>
+                  <div class="text-gray-500">Mójù zhùsù yālì piāndī • Áp suất phun khuôn nhựa quá thấp</div>
+                </div>
+                <button onclick="copyToClipboard('模具注塑压力偏低', 'thuật ngữ')" class="px-2.5 py-1.5 rounded-lg bg-white border border-gray-300 hover:border-emerald-500 text-gray-700 font-bold hover:text-emerald-600 shadow-sm">
+                  <i class="fa-solid fa-copy mr-1"></i> Copy
+                </button>
+              </div>
+
+              <div class="p-3 bg-[#F4F5F8] rounded-xl flex items-center justify-between hover:bg-emerald-50 transition-colors">
+                <div>
+                  <div class="font-chinese font-bold text-sm text-gray-900">冷藏柜断链温度异常</div>
+                  <div class="text-gray-500">Lěngcángguì duànliàn wēndù yìcháng • Đứt chuỗi lạnh container</div>
+                </div>
+                <button onclick="copyToClipboard('冷藏柜断链温度异常', 'thuật ngữ')" class="px-2.5 py-1.5 rounded-lg bg-white border border-gray-300 hover:border-emerald-500 text-gray-700 font-bold hover:text-emerald-600 shadow-sm">
+                  <i class="fa-solid fa-copy mr-1"></i> Copy
+                </button>
+              </div>
+
+              <div class="p-3 bg-[#F4F5F8] rounded-xl flex items-center justify-between hover:bg-emerald-50 transition-colors">
+                <div>
+                  <div class="font-chinese font-bold text-sm text-gray-900">原产地证 Form E 办理</div>
+                  <div class="text-gray-500">Yuánchǎndì zhèng Form E bànlǐ • Kê khai giấy chứng nhận Form E</div>
+                </div>
+                <button onclick="copyToClipboard('原产地证 Form E 办理', 'thuật ngữ')" class="px-2.5 py-1.5 rounded-lg bg-white border border-gray-300 hover:border-emerald-500 text-gray-700 font-bold hover:text-emerald-600 shadow-sm">
+                  <i class="fa-solid fa-copy mr-1"></i> Copy
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Emergency Hotline Card -->
+          <div class="bg-red-50 border border-red-200 rounded-2xl p-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-red-600 text-white flex items-center justify-center text-lg">
+                <i class="fa-solid fa-phone-volume"></i>
+              </div>
+              <div>
+                <div class="text-xs font-bold text-red-900 uppercase">ĐƯỜNG DÂY NÓNG CỨU HỘ DOANH NGHIỆP:</div>
+                <div class="text-sm font-black text-red-700 font-mono">1900-POL-HELP (24/7 B2B Support)</div>
+              </div>
+            </div>
+            <a href="tel:19001234" class="px-3 py-1.5 rounded-xl bg-red-600 text-white text-xs font-bold hover:bg-red-700">
+              Gọi Ngay
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==========================================================================
+       SECTION 7: KHÁCH HÀNG THỰC CHIẾN NÓI GÌ (SOCIAL PROOF)
+       ========================================================================== -->
+  <section class="py-20 md:py-28 bg-[#FFFFFF] border-b border-gray-200/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="gold-badge px-3.5 py-1 rounded-full text-xs font-bold inline-flex items-center gap-1.5 mb-3">
+          <i class="fa-solid fa-comments text-amber-500"></i>
+          <span>BẰNG CHỨNG GIÁ TRỊ TỪ 18,500+ HỌC VIÊN</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight">
+          CÂU CHUYỆN THỰC CHIẾN <br>
+          <span class="text-[#07C160]">TỪ NHÀ XƯỞNG ĐẾN CỬA KHẨU BIÊN GIỚI</span>
+        </h2>
+        <p class="text-gray-600 text-sm sm:text-base mt-3">
+          Không lý thuyết suông. Đây là những con người đã thay đổi hoàn toàn vị thế công việc nhờ VietHoaTalk.
+        </p>
+      </div>
+
+      <!-- Testimonial Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Testimonial 1 -->
+        <div class="bg-[#F4F5F8] rounded-3xl p-8 border border-gray-200 hover:border-emerald-400 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex text-amber-400 text-sm">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            
+            <p class="text-sm text-gray-700 italic leading-relaxed">
+              "Trước đây tôi sợ nhất là báo cáo ca với Giám đốc Đài Loan trên WeChat Work. Toàn nhắn cộc lốc rồi bị sếp mắng là thái độ kém. Nhờ <strong class="text-emerald-700">Culture Guard</strong> và kho Chunks máy SMT, giờ tôi tự tin báo cáo lưu loát, được thăng chức Trưởng chuyền sau 3 tháng!"
+            </p>
+          </div>
+
+          <div class="pt-6 border-t border-gray-200 mt-6 flex items-center gap-3">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-blue-600 to-indigo-600 text-white flex items-center justify-center font-bold text-base shadow">
+              V
+            </div>
+            <div>
+              <div class="font-bold text-gray-900 text-sm">Anh Vương</div>
+              <div class="text-xs text-emerald-700 font-semibold">Quản lý Phân xưởng SMT</div>
+              <div class="text-[11px] text-gray-500">KCN Quế Võ, Bắc Ninh</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="bg-[#F4F5F8] rounded-3xl p-8 border border-gray-200 hover:border-emerald-400 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex text-amber-400 text-sm">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            
+            <p class="text-sm text-gray-700 italic leading-relaxed">
+              "Đợt hàng 3 container sầu riêng Monthong bị giữ ở Bằng Tường do sự cố lạnh container, phía thu mua đòi ép giá 40%. Tôi mở ngay <strong class="text-emerald-700">Bài 40 & Bài 44</strong> trong app, áp dụng đúng bài đàm phán giải trình giám định độc lập và cứu được hơn 2 tỷ đồng tiền hàng!"
+            </p>
+          </div>
+
+          <div class="pt-6 border-t border-gray-200 mt-6 flex items-center gap-3">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-amber-500 to-orange-500 text-white flex items-center justify-center font-bold text-base shadow">
+              M
+            </div>
+            <div>
+              <div class="font-bold text-gray-900 text-sm">Chị Mai</div>
+              <div class="text-xs text-amber-700 font-semibold">Chủ vựa Sầu riêng Monthong</div>
+              <div class="text-[11px] text-gray-500">Cai Lậy, Tiền Giang</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="bg-[#F4F5F8] rounded-3xl p-8 border border-gray-200 hover:border-emerald-400 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex text-amber-400 text-sm">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            
+            <p class="text-sm text-gray-700 italic leading-relaxed">
+              "Tôi không biết viết một nét chữ Hán nào! Nhưng với triết lý <strong class="text-emerald-700">Typing-First</strong> của VietHoaTalk, tôi gõ Pinyin trên điện thoại nhoay nhoáy, sang tận chợ Sa Hà Quảng Châu và nhắn tin 1688 mặc cả chiết khấu 15% mà chủ xưởng cứ tưởng tôi là người Hoa lâu năm."
+            </p>
+          </div>
+
+          <div class="pt-6 border-t border-gray-200 mt-6 flex items-center gap-3">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-emerald-500 to-teal-600 text-white flex items-center justify-center font-bold text-base shadow">
+              T
+            </div>
+            <div>
+              <div class="font-bold text-gray-900 text-sm">Anh Tuấn</div>
+              <div class="text-xs text-blue-700 font-semibold">Dân buôn sỉ Thời trang 1688</div>
+              <div class="text-[11px] text-gray-500">Chợ Ninh Hiệp & Sa Hà</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Trust Metrics Counter Bar -->
+      <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div class="p-6 bg-[#F4F5F8] rounded-2xl border border-gray-200">
+          <div class="text-3xl sm:text-4xl font-black text-gray-900">18,500+</div>
+          <div class="text-xs text-gray-500 font-bold uppercase tracking-wider mt-1">Học Viên Kích Hoạt</div>
+        </div>
+        <div class="p-6 bg-[#F4F5F8] rounded-2xl border border-gray-200">
+          <div class="text-3xl sm:text-4xl font-black text-[#07C160]">420+</div>
+          <div class="text-xs text-gray-500 font-bold uppercase tracking-wider mt-1">Nhà Máy & Hợp Tác Xã</div>
+        </div>
+        <div class="p-6 bg-[#F4F5F8] rounded-2xl border border-gray-200">
+          <div class="text-3xl sm:text-4xl font-black text-amber-500">99.4%</div>
+          <div class="text-xs text-gray-500 font-bold uppercase tracking-wider mt-1">Đánh Giá Thực Chiến 5★</div>
+        </div>
+        <div class="p-6 bg-[#F4F5F8] rounded-2xl border border-gray-200">
+          <div class="text-3xl sm:text-4xl font-black text-purple-600">&lt; 200ms</div>
+          <div class="text-xs text-gray-500 font-bold uppercase tracking-wider mt-1">Độ Trễ Phản Hồi AI</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==========================================================================
+       SECTION: FINAL CTA BANNER
+       ========================================================================== -->
+  <section class="py-16 md:py-24 bg-gradient-to-r from-[#07C160] via-[#05AD55] to-[#049449] text-white relative overflow-hidden">
+    <div class="max-w-5xl mx-auto px-4 text-center space-y-6 relative z-10">
+      <div class="inline-block px-4 py-1 rounded-full bg-white/20 backdrop-blur-md text-xs font-black tracking-widest uppercase border border-white/30">
+        ✦ CƠ HỘI ĐỘT PHÁ THU NHẬP VÀ VỊ THẾ NĂM 2026 ✦
+      </div>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight leading-tight">
+        SẴN SÀNG BẬT PHẢN XẠ TIẾNG HOA <br>
+        CHỈ SAU 14 TUẦN MIỄN PHÍ?
+      </h2>
+      <p class="text-base sm:text-lg text-emerald-50 max-w-2xl mx-auto font-medium">
+        Không cần học viết chữ Hán. Nhận ngay 14 Tuần miễn phí + 14 Ngày VIP Full Access khi kích hoạt mã khóa phần cứng hôm nay!
+      </p>
+      
+      <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <button class="trigger-open-register w-full sm:w-auto bg-[#1E2229] hover:bg-black text-white px-8 py-4 rounded-2xl font-black text-base shadow-2xl flex items-center justify-center gap-3 border border-amber-400">
+          <i class="fa-solid fa-gift text-amber-400"></i>
+          <span>KÍCH HOẠT 14 TUẦN + 14 NGÀY VIP FREE</span>
+        </button>
+        <button class="trigger-open-demo w-full sm:w-auto bg-white/20 hover:bg-white/30 text-white px-8 py-4 rounded-2xl font-bold text-base backdrop-blur-md flex items-center justify-center gap-2">
+          <i class="fa-solid fa-play"></i>
+          <span>Xem Video Giới Thiệu</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================================================
+       SECTION 8: FOOTER & THÔNG TIN DOANH NGHIỆP
+       ========================================================================== -->
+  <footer class="bg-[#16191F] text-gray-400 text-xs py-16 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-gray-800">
+        
+        <!-- Col 1: Brand & Overview -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-2xl bg-[#07C160] flex items-center justify-center text-white text-lg font-bold shadow">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div>
+              <div class="font-bold text-xs uppercase gold-gradient-text tracking-widest">POL SOLUTION CO., LTD.</div>
+              <div class="text-xl font-black text-white">VietHoa<span class="text-[#07C160]">Talk</span> Pro</div>
+            </div>
+          </div>
+          <p class="text-xs text-gray-400 leading-relaxed pr-6">
+            Đơn vị tiên phong cung cấp giải pháp chuyển đổi ngôn ngữ ứng dụng AI cho các doanh nghiệp sản xuất, khu công nghiệp và thương mại xuất nhập khẩu Việt Nam - Trung Quốc.
+          </p>
+          <div class="flex items-center gap-3 pt-2">
+            <span class="px-3 py-1 rounded-full bg-gray-800 text-gray-300 font-mono text-[11px] border border-gray-700">
+              <i class="fa-solid fa-lock text-emerald-400 mr-1"></i> DRM AES-256
+            </span>
+            <span class="px-3 py-1 rounded-full bg-gray-800 text-gray-300 font-mono text-[11px] border border-gray-700">
+              <i class="fa-solid fa-server text-blue-400 mr-1"></i> FastAPI Engine
+            </span>
+          </div>
+        </div>
+
+        <!-- Col 2: Hệ Sinh Thái 4 Tab -->
+        <div class="space-y-3">
+          <div class="font-bold text-sm text-white uppercase tracking-wider">Hệ Sinh Thái 4 Tab</div>
+          <ul class="space-y-2">
+            <li><a href="#curriculum" class="hover:text-emerald-400 transition-colors">Micro-Learning 3 Phút</a></li>
+            <li><a href="#tabs-ecosystem" class="hover:text-emerald-400 transition-colors">WeChat Work Simulator</a></li>
+            <li><a href="#niche-hub" class="hover:text-emerald-400 transition-colors">Sổ Tay Tiện Ích Ngách</a></li>
+            <li><a href="#ai-assistant" class="hover:text-emerald-400 transition-colors">AI Voice Roleplay Partner</a></li>
+            <li><a href="#niche-hub" class="hover:text-emerald-400 transition-colors">Quy Đổi Tệ (RMB) Realtime</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Lộ Trình 4 Tầng -->
+        <div class="space-y-3">
+          <div class="font-bold text-sm text-white uppercase tracking-wider">Lộ Trình 86 Bài</div>
+          <ul class="space-y-2">
+            <li><a href="#curriculum" class="hover:text-emerald-400 transition-colors">Tầng 1: Sinh Tồn Công Xưởng</a></li>
+            <li><a href="#curriculum" class="hover:text-emerald-400 transition-colors">Tầng 2: Văn Phòng & WeChat</a></li>
+            <li><a href="#curriculum" class="hover:text-emerald-400 transition-colors">Tầng 3: Kỹ Thuật Ép Nhựa & SMT</a></li>
+            <li><a href="#curriculum" class="hover:text-emerald-400 transition-colors">Tầng 4: Đàm Phán B2B & GACC</a></li>
+            <li><a href="#curriculum" class="hover:text-emerald-400 transition-colors">Khóa Học Ngách Nông Sản</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Hỗ Trợ & Liên Hệ B2B -->
+        <div class="space-y-3">
+          <div class="font-bold text-sm text-white uppercase tracking-wider">Liên Hệ & B2B</div>
+          <div class="space-y-2 text-xs">
+            <div><strong>Trụ Sở:</strong> Tòa Nhà Công Nghệ POL, Hà Nội</div>
+            <div><strong>Văn Phòng:</strong> TP. Hồ Chí Minh & Bắc Ninh</div>
+            <div><strong>Hotline B2B:</strong> <span class="text-emerald-400 font-bold">1900-POL-HELP</span></div>
+            <div><strong>Email:</strong> b2b@polsolution.vn</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Legal Row -->
+      <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] text-gray-500">
+        <div>
+          © 2026 POL SOLUTION Co., Ltd. Tất cả bản quyền được bảo hộ. Công nghệ Device Binding độc quyền.
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-gray-400">Điều Khoản Sử Dụng</a>
+          <a href="#" class="hover:text-gray-400">Chính Sách Bảo Mật DRM</a>
+          <a href="#" class="hover:text-gray-400">Bản Quyền 86 Bài Học</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ==========================================================================
+       MODAL 1: ĐĂNG KÝ DÙNG THỬ 14 TUẦN + 14 NGÀY VIP (LEAD CAPTURE & DRM BIND)
+       ========================================================================== -->
+  <div id="registerModal" class="modal-container fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border border-gray-200 relative animate-in fade-in zoom-in-95 duration-200">
+      
+      <!-- Modal Header -->
+      <div class="bg-[#1E2229] text-white p-6 relative">
+        <button class="modal-close-btn absolute top-5 right-5 text-gray-400 hover:text-white text-xl">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="gold-badge-dark px-3 py-0.5 rounded-full text-[10px] font-bold inline-flex items-center gap-1 mb-2">
+          <i class="fa-solid fa-crown text-amber-300"></i> ƯU ĐÃI ĐỘC QUYỀN POL SOLUTION
+        </div>
+        <h3 class="text-xl sm:text-2xl font-black text-white">ĐĂNG KÝ NHẬN 14 TUẦN MIỄN PHÍ</h3>
+        <p class="text-xs text-amber-300 font-semibold mt-1">
+          ✦ Tặng thêm 14 NGÀY FULL VIP ACCESS khi hoàn tất bài số 3!
+        </p>
+      </div>
+
+      <!-- Modal Body -->
+      <div id="registerModalBody" class="p-6 sm:p-8 space-y-5">
+        
+        <form id="registrationForm" class="space-y-4">
+          <div>
+            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Họ Và Tên Của Bạn *</label>
+            <input required type="text" placeholder="Ví dụ: Nguyễn Văn Vương" class="w-full bg-[#F4F5F8] border border-gray-300 focus:border-emerald-500 rounded-xl py-2.5 px-3 text-sm focus:outline-none focus:ring-1 focus:ring-emerald-500" />
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Số Điện Thoại / Zalo Nhận Bản Quyền *</label>
+            <input required type="tel" placeholder="Ví dụ: 0912 345 678" class="w-full bg-[#F4F5F8] border border-gray-300 focus:border-emerald-500 rounded-xl py-2.5 px-3 text-sm focus:outline-none focus:ring-1 focus:ring-emerald-500" />
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Lĩnh Vực Hoạt Động *</label>
+            <select required class="w-full bg-[#F4F5F8] border border-gray-300 focus:border-emerald-500 rounded-xl py-2.5 px-3 text-xs sm:text-sm text-gray-800 focus:outline-none">
+              <option value="kcn">Kỹ sư Nhà máy / Quản lý SMT / Ép Nhựa</option>
+              <option value="nongsan">Chủ vựa Sầu riêng / Nông sản xuất khẩu</option>
+              <option value="1688">Dân buôn Sỉ 1688 / Taobao / Chợ Sa Hà</option>
+              <option value="logistics">Logistics / Hải quan / Thủ tục Cửa khẩu</option>
+              <option value="fb">F&B / Khách sạn / Dịch vụ cao cấp</option>
+              <option value="other">Học viên tự do</option>
+            </select>
+          </div>
+
+          <!-- Hardware Device Binding Status -->
+          <div class="p-3 bg-gray-50 border border-gray-200 rounded-xl flex items-center justify-between text-xs">
+            <div class="flex items-center gap-2 text-gray-600">
+              <i class="fa-solid fa-fingerprint text-emerald-600"></i>
+              <span>Khóa phần cứng: <strong class="text-gray-900 font-mono">POL-DRM-ACTIVE</strong></span>
+            </div>
+            <span class="text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-bold">1 Máy / 1 Slot</span>
+          </div>
+
+          <button type="submit" class="w-full btn-emerald py-3.5 rounded-xl text-sm font-black flex items-center justify-center gap-2 shadow-lg border border-amber-300">
+            <i class="fa-solid fa-gift text-amber-300"></i>
+            <span>HOÀN TẤT & KÍCH HOẠT 14 NGÀY VIP</span>
+          </button>
+
+          <p class="text-[11px] text-gray-500 text-center">
+            Bằng việc gửi thông tin, bạn đồng ý với Điều khoản dịch vụ và Chính sách bảo mật DRM của POL SOLUTION.
+          </p>
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ==========================================================================
+       MODAL 2: XEM DEMO WECHAT & AI VOICE (INTERACTIVE SIMULATOR MODAL)
+       ========================================================================== -->
+  <div id="demoModal" class="modal-container fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl border border-gray-200 relative animate-in fade-in zoom-in-95 duration-200">
+      
+      <!-- Modal Header -->
+      <div class="bg-[#1E2229] text-white p-5 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-lg bg-[#07C160] flex items-center justify-center text-white text-sm">
+            <i class="fa-brands fa-weixin"></i>
+          </div>
+          <div>
+            <h4 class="text-base font-bold text-white">DEMO TRỰC TIẾP: WECHAT WORK & AI VOICE</h4>
+            <div class="text-[11px] text-emerald-400">Tương tác trực tiếp với Sếp Trương (Phòng Kỹ Thuật)</div>
+          </div>
+        </div>
+        <button class="modal-close-btn text-gray-400 hover:text-white text-xl">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body Simulator -->
+      <div class="p-6 space-y-4 max-h-[75vh] overflow-y-auto bg-[#F4F5F8]">
+        
+        <!-- Step 1 Audio Demo -->
+        <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-sm space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-gray-800 uppercase flex items-center gap-1.5">
+              <i class="fa-solid fa-volume-high text-emerald-600"></i> Tình huống: Sếp Trương hỏi tiến độ máy ép nhựa
+            </span>
+            <span class="text-[10px] bg-emerald-50 text-emerald-700 font-bold px-2 py-0.5 rounded">Native 1.0x</span>
+          </div>
+
+          <div class="p-3 bg-gray-50 rounded-xl space-y-1">
+            <div class="font-chinese text-base font-bold text-gray-900">张经理： 3号注塑机修好了吗？几点能复工？</div>
+            <div class="font-mono text-xs text-gray-600">Zhāng jīnglǐ: 3 hào zhùsùjī xiū hǎo le ma? Jǐ diǎn néng fùgōng?</div>
+            <div class="text-xs text-gray-500">Giám đốc Trương: Máy ép nhựa số 3 đã sửa xong chưa? Mấy giờ có thể chạy lại?</div>
+          </div>
+
+          <div class="flex items-center justify-between pt-1">
+            <button class="btn-play-simulated-audio px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-2">
+              <i class="fa-solid fa-play"></i> Nghe Audio Bản Xứ (30s)
+            </button>
+            <span class="text-xs text-gray-500">Shadowing 3s</span>
+          </div>
+        </div>
+
+        <!-- Step 2 Culture Guard Simulation -->
+        <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-sm space-y-3">
+          <div class="text-xs font-bold text-gray-800 uppercase flex items-center gap-1.5">
+            <i class="fa-solid fa-shield-halved text-red-600"></i> Phản xạ đối thoại & Bộ lọc Culture Guard
+          </div>
+
+          <!-- Wrong approach -->
+          <div class="p-3 bg-red-50 border border-red-200 rounded-xl space-y-1">
+            <div class="text-xs font-bold text-red-800">❌ Cách trả lời sai (Cộc lốc, thất lễ):</div>
+            <div class="font-chinese text-sm font-bold text-red-900">知道了，马上好。</div>
+            <div class="text-[11px] text-red-700">Culture Guard Alert: "知道了" thể hiện sự khó chịu, cộc lốc với sếp!</div>
+          </div>
+
+          <!-- Right approach -->
+          <div class="p-3 bg-emerald-50 border border-emerald-200 rounded-xl space-y-1">
+            <div class="text-xs font-bold text-emerald-800">✅ Cách trả lời chuẩn VietHoaTalk (Lịch sự, chuyên nghiệp):</div>
+            <div class="font-chinese text-base font-bold text-emerald-900">报告张经理，配件刚换好，预计下午两点半试机复工！</div>
+            <div class="font-mono text-xs text-emerald-700">Bàogào Zhāng jīnglǐ, pèijiàn gāng huàn hǎo, yùjì xiàwǔ liǎng diǎn bàn shìjī fùgōng!</div>
+            <div class="text-xs text-gray-600">Báo cáo Giám đốc Trương, linh kiện vừa thay xong, dự kiến 2h30 chiều sẽ chạy thử và phục hồi sản xuất!</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="bg-white p-4 border-t border-gray-200 flex items-center justify-between">
+        <button class="modal-close-btn px-4 py-2 rounded-xl bg-gray-100 text-gray-700 text-xs font-bold hover:bg-gray-200">
+          Đóng Demo
+        </button>
+        <button onclick="closeModal('demoModal'); openModal('registerModal');" class="btn-emerald px-5 py-2.5 rounded-xl text-xs font-bold flex items-center gap-1.5">
+          <i class="fa-solid fa-gift text-amber-300"></i>
+          <span>Kích Hoạt Bản Quyền Full 86 Bài</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- App Scripts -->
+  <script src="app.js"></script>
+</body>
+</html>
