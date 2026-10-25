@@ -641,14 +641,14 @@ function initModals() {
     regForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const submitBtn = regForm.querySelector('button[type="submit"]');
-      submitBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin mr-1"></i> Đang kích hoạt 14 Tuần + 14 Ngày VIP...`;
+      submitBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin mr-1"></i> Đang hoàn tất đăng ký...`;
       
       setTimeout(() => {
         // Trigger Confetti
         if (typeof confetti === 'function') {
           confetti({
-            particleCount: 120,
-            spread: 70,
+            particleCount: 80,
+            spread: 60,
             origin: { y: 0.6 }
           });
         }
@@ -656,37 +656,39 @@ function initModals() {
         const modalBody = document.getElementById('registerModalBody');
         if (modalBody) {
           modalBody.innerHTML = `
-            <div class="text-center py-6 space-y-4">
-              <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-3xl">
-                <i class="fa-solid fa-crown"></i>
+            <div class="text-center py-5 space-y-3.5">
+              <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-2xl">
+                <i class="fa-solid fa-circle-check"></i>
               </div>
-              <h3 class="text-2xl font-black text-gray-900">CHÚC MỪNG BẠN ĐÃ KÍCH HOẠT THÀNH CÔNG!</h3>
-              <p class="text-sm text-gray-600 max-w-md mx-auto">
-                Gói bản quyền <strong>14 TUẦN MIỄN PHÍ + 14 NGÀY FULL VIP ACCESS</strong> đã được gắn cứng vào mã phần cứng thiết bị của bạn.
+              <h3 class="text-lg font-bold text-gray-900">ĐĂNG KÝ TRẢI NGHIỆM THÀNH CÔNG</h3>
+              <p class="text-xs text-gray-600 max-w-sm mx-auto leading-relaxed">
+                Tài khoản của bạn đã được ghi nhận quyền trải nghiệm 14 tuần miễn phí. Bạn có thể mở trực tiếp ứng dụng để học ngay:
               </p>
               
-              <div class="p-4 bg-emerald-50 border border-emerald-300 rounded-2xl max-w-sm mx-auto text-left space-y-2">
-                <div class="text-xs text-gray-500 uppercase tracking-wider font-bold">Mã Bản Quyền Của Bạn:</div>
-                <div class="font-mono text-base font-black text-emerald-800">VIP-POL-2026-SUCCESS</div>
-                <div class="text-xs text-emerald-700 flex items-center gap-1">
-                  <i class="fa-solid fa-shield-check"></i> Đã mở khóa trọn bộ 86 Bài học VCSF 4 Tầng!
+              <div class="p-3.5 bg-emerald-50 border border-emerald-300 rounded-xl max-w-sm mx-auto text-left space-y-1.5">
+                <div class="text-[11px] text-gray-500 uppercase font-semibold">Đường dẫn ứng dụng VietHoaTalk:</div>
+                <a href="https://viethoatalk.vercel.app" target="_blank" rel="noopener noreferrer" class="font-mono text-sm font-bold text-emerald-800 hover:underline flex items-center gap-1">
+                  https://viethoatalk.vercel.app <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                </a>
+                <div class="text-[11px] text-gray-600">
+                  Hỗ trợ kỹ thuật POL SOLUTION: <strong>0917 551 917</strong>
                 </div>
               </div>
 
-              <div class="pt-4 flex flex-col sm:flex-row gap-3 justify-center">
-                <a href="#curriculum" onclick="closeModal('registerModal')" class="py-3 px-6 rounded-xl bg-[#07C160] text-white font-bold hover:bg-[#05AD55] shadow-lg">
-                  <i class="fa-solid fa-book-open mr-1"></i> Bắt Đầu Học Ngay
+              <div class="pt-3 flex flex-col sm:flex-row gap-2 justify-center">
+                <a href="https://viethoatalk.vercel.app" target="_blank" rel="noopener noreferrer" class="py-2.5 px-5 rounded-lg bg-[#07C160] text-white text-xs font-bold hover:bg-[#05AD55] shadow-sm flex items-center justify-center gap-1.5">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> Mở Ứng Dụng Học Ngay
                 </a>
-                <button onclick="closeModal('registerModal')" class="py-3 px-6 rounded-xl bg-gray-100 text-gray-700 font-bold hover:bg-gray-200">
-                  Đóng Cửa Sổ
+                <button onclick="closeModal('registerModal')" class="py-2.5 px-4 rounded-lg bg-gray-100 text-gray-700 text-xs font-semibold hover:bg-gray-200">
+                  Đóng
                 </button>
               </div>
             </div>
           `;
         }
 
-        showToast('🎉 Chúc mừng! Bạn đã sở hữu 14 Ngày VIP Full Access!');
-      }, 1000);
+        showToast('✅ Đã đăng ký thành công! Hãy mở viethoatalk.vercel.app để bắt đầu.');
+      }, 700);
     });
   }
 }
